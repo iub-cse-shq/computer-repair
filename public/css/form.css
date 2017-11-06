@@ -46,7 +46,7 @@
 	margin-right:  20px;
 	text-align: center;
 	min-height:200px;
-	background-image: url(images/sign.jpg);
+	background-image: url(/image/sign.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -104,4 +104,11 @@ hr{
 .fa-youtube {
   background: #bb0000;
   color: white;
+}
+@media(maxlength:768){
+	  form{
+	  	color: green;
+	  	font-family: italic;
+	  	size: 200px;
+	  }
 }

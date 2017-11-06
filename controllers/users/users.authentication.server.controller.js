@@ -74,6 +74,14 @@ exports.signinView = function(req, res) {
 	});
 };
 
+exports.registration = function(req, res) {
+	res.render('./../public/views/Registration.ejs', {
+		user: req.user || null,
+		request: req
+	});
+};
+
+
 /**
  * Signout
  */

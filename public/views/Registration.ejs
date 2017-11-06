@@ -7,9 +7,9 @@
      <title>
     Registration
      </title>
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/full-slider.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="form.css">
+    <link href="vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/full-slider.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/form.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -17,7 +17,7 @@
 <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top nav1">
       <div class="con">
-       <img src="images/1st.jpg" class="profile">
+       <img src="/image/1st.jpg" class="profile">
         </div>
       <div class="container fle">
         
@@ -29,12 +29,12 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html"><b>Home</b>
+              <a class="nav-link" href="/home"><b>Home</b>
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="About_us.html"><b>About us</b></a>
+              <a class="nav-link" href="/aboutus"><b>About us</b></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#"><b>Registration</b></a>
@@ -69,7 +69,7 @@
                   <tr style="margin-top: 2px;">
                      <tr>
                       <td>
-                        <label style="font-size: 23px;">First Name</label>
+                        <label id="fname" style="font-size: 23px;">First Name</label>
                       </td>
                       <td>
                       <input style="font-size:20px; margin-right:300px;"
@@ -82,7 +82,7 @@
                     </tr>
                      <tr>
                       <td>
-                        <label style="font-size: 23px;">Last Name</label>
+                        <label id="lname" style="font-size: 23px;">Last Name</label>
                       </td>
                       <td>
                        <input style="font-size:20px; margin-right:300px;"
@@ -95,7 +95,7 @@
                     </tr>
                      <tr>
                       <td>
-                        <label style="font-size: 23px;margin-right: 10px;">Email</label>
+                        <label id="email" style="font-size: 23px;margin-right: 10px;">Email</label>
                       </td>
                       <td>
                         <input style="font-size:20px; margin-right:300px;" type="text" name="email" maxlength="70"
@@ -107,31 +107,35 @@
                     </tr>
                      <tr>
                       <td>
-                        <label style="font-size: 23px;margin-right: 10px;">Password</label>
+                        <label id="pass" style="font-size: 23px;margin-right: 10px;">Password</label>
                       </td>
                       <td>
                         <input style="font-size:20px; margin-right:300px;" type="password" name="password" maxlength="70"
                          size="20">
                          <h4 style="font-size:20px; margin-right:300px;">
                           write your password
-                         </h4>
+                         </h4> 
                       </td>
                     </tr>
                      <tr>
-                      <td>
-                        <label style="font-size: 23px;margin-right: 10px;">Confirm password</label>
-                      </td>
-                      <td>
-                        <input style="font-size:20px; margin-right:300px;" type="password" name="confirm_password" maxlength="70"
-                         size="20">
-                         <h4 style="font-size:20px; margin-right:300px;">
-                          confirm your password
-                         </h4>
-                      </td>
                     </tr>
                   </tr>
                 </table>
-                 <button type="text" style="background-color: green; font-size: 20px;">REGISTER</button>
+                 <button type="text"><a href="/service">register</a></button>
+                 
+                  <script src="/lib/jquery/dist/jquery.min.js"></script>
+                 <script>
+                  var article={title:"", content:""};
+                $("#fname").change(function(){
+                article.title=$("#fname").val();
+                });
+                $("#lname").change(function(){
+                article.content=$("#lname").val();
+                });
+                 $("#email").change(function(){
+                article.content=$("#email").val();
+                });
+                   </script>
               </form>
             </div>
         </div>
@@ -152,9 +156,9 @@
            </ul>
         </center>
     </footer>  
-     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper/popper.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+     <script src="vendor/jquery.min.js"></script>
+    <script src="vendor/popper.min.js"></script>
+    <script src="vendor/bootstrap.min.js"></script>
   
 </body>
 </html>

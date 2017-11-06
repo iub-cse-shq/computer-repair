@@ -28,6 +28,9 @@ module.exports = function(app) {
 
 	// Routes to user views
 	app.route('/signin').get(users.signinView);
+	app.route('/registration').get(users.registration)
+	
+   
 	// Finish by binding the user middleware
 	app.param('userId', users.userByID);
 };
