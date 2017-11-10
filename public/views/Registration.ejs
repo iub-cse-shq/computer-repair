@@ -15,9 +15,10 @@
 
 </head>
 <body>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top nav1">
+    <div class="container flued">
+         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top nav1">
       <div class="con">
-       <img src="/image/1st.jpg" class="profile">
+        <img src="https://callnerds.com/wp-content/plugins/nerds-functionality/assets/img/nerds/nerd-service-laptop-repair.png"  class="profile">
         </div>
       <div class="container fle">
         
@@ -36,20 +37,18 @@
             <li class="nav-item">
               <a class="nav-link" href="/aboutus"><b>About us</b></a>
             </li>
+        
             <li class="nav-item">
-              <a class="nav-link" href="#"><b>Registration</b></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><b>Contact us</b></a>
+              <a class="nav-link" href="#"><b>Services</b></a>
             </li>
              <li class="nav-item">
-              <a class="nav-link" href="#"><b>sign in</b></a>
+              <a class="nav-link" href="/registration"><b>sign in</b></a>
             </li>
           </ul>
-           <form class="form-inline my-2 my-lg-0" style="padding-left: 20px;">
+           <div class="form-inline my-2 my-lg-0" style="padding-left: 20px;">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                </div>
         </div>
               
       </div>
@@ -64,55 +63,55 @@
                Sign up<br>
                <h5>You have to register first</h5>
                <hr>
-               <form>
+               <div id="for">
                 <table width="700px">
                   <tr style="margin-top: 2px;">
                      <tr>
                       <td>
-                        <label id="fname" style="font-size: 23px;">First Name</label>
+                        <label style="font-size: 23px;">First Name</label>
                       </td>
                       <td>
-                      <input style="font-size:20px; margin-right:300px;"
+                      <input  id="fname" style="font-size:20px; margin-right:300px;"
                        type="text" name="First Nmae" maxlength="70" 
                          size="20">
-                         <h4 style="font-size:20px; margin-right:300px;">
+                         <h4 id="id1" style="font-size:20px; margin-right:300px;">
                           write your first name
                          </h4>
                       </td>
                     </tr>
                      <tr>
                       <td>
-                        <label id="lname" style="font-size: 23px;">Last Name</label>
+                        <label style="font-size: 23px;">Last Name</label>
                       </td>
                       <td>
-                       <input style="font-size:20px; margin-right:300px;"
+                       <input  id="lname" style="font-size:20px; margin-right:300px;t"
                        type="text" name="Last Name" maxlength="70" 
                          size="20">
-                         <h4 style="font-size:20px; margin-right:300px;">
+                         <h4 id="id2" style="font-size:20px; margin-right:300px;">
                           write your Last name
                          </h4>
                       </td>
                     </tr>
                      <tr>
                       <td>
-                        <label id="email" style="font-size: 23px;margin-right: 10px;">Email</label>
+                        <label  style="font-size: 23px;margin-right: 10px;">Email</label>
                       </td>
                       <td>
-                        <input style="font-size:20px; margin-right:300px;" type="text" name="email" maxlength="70"
+                        <input id="email" style="font-size:20px; margin-right:300px;" type="text" name="email" maxlength="70"
                          size="20">
-                         <h4 style="font-size:20px; margin-right:300px;">
+                         <h4 id="id3" style="font-size:20px; margin-right:300px;">
                           write your email
                          </h4>
                       </td>
                     </tr>
                      <tr>
                       <td>
-                        <label id="pass" style="font-size: 23px;margin-right: 10px;">Password</label>
+                        <label style="font-size: 23px;margin-right: 10px;">Password</label>
                       </td>
                       <td>
-                        <input style="font-size:20px; margin-right:300px;" type="password" name="password" maxlength="70"
+                        <input id="pass" style="font-size:20px; margin-right:300px;" type="password" name="password" maxlength="70"
                          size="20">
-                         <h4 style="font-size:20px; margin-right:300px;">
+                         <h4 id="id4" style="font-size:20px; margin-right:300px;">
                           write your password
                          </h4> 
                       </td>
@@ -121,22 +120,43 @@
                     </tr>
                   </tr>
                 </table>
-                 <button type="text"><a href="/service">register</a></button>
+                 <button id="but" type="text">Submit</button>
                  
                   <script src="/lib/jquery/dist/jquery.min.js"></script>
                  <script>
-                  var article={title:"", content:""};
-                $("#fname").change(function(){
-                article.title=$("#fname").val();
-                });
-                $("#lname").change(function(){
-                article.content=$("#lname").val();
-                });
-                 $("#email").change(function(){
-                article.content=$("#email").val();
-                });
+                  var user={};
+                      $("#fname").change(function(){
+                     user.firstName=$("#fname").val();
+                      });
+                     $("#lname").change(function(){
+                      user.lastName=$("#lname").val();
+                     });
+                     $("#email").change(function(){
+                    user.email=$("#email").val();
+                     });
+                     $("#pass").change(function(){
+                    user.password=$("#pass").val();
+                     });
+                    $("#but").click(function(event){
+                    $.ajax({
+                    method: 'POST',
+                    url: "/auth/signup",
+                    data: user
+                   }).done(function(response){
+                     console.log(response);
+                    window.location.replace('/service');
+                   }).fail(function(response){
+                     console.log(response);
+                 
+                    $("#id1").text("Required!");
+                    $("#id2").text("Required!");
+                    $("#id3").text("Required!");
+                    $("#id4").text("Required!");
+                 
+             });
+       });
                    </script>
-              </form>
+              </div>
             </div>
         </div>
       </div>
@@ -159,6 +179,9 @@
      <script src="vendor/jquery.min.js"></script>
     <script src="vendor/popper.min.js"></script>
     <script src="vendor/bootstrap.min.js"></script>
+        
+    </div>
+     
   
 </body>
 </html>

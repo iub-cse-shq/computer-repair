@@ -24,9 +24,10 @@
 }
 .profile{
 	height: 50px;
-	width:80px;
-	border: 10px solid;
-	border-color: red;
+	width:100px;
+	margin-left: 40px;
+	background-color: white;
+
 }
 @media(max-width: 768){
 	.carousel-item{
@@ -76,6 +77,7 @@
  	margin-top: 45px;
  }
 .box1{
+
 	float:left;
 	border: 2px;
 	height: 160px;
@@ -86,6 +88,7 @@
 
 }
 .box2{
+	background: white;
 	float:left;
 	border: 2px ;
 	height: 160px;
@@ -95,6 +98,7 @@
 	margin-top: 10px;
 }
 .box3{
+	background: white;
 	float:left;
 	border: 2px;
 	height: 160px;

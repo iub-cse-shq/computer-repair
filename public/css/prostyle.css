@@ -1,5 +1,6 @@
 .nav1{
-	height: 50px;
+	height:50px;
+	width: 100%;
    
 }
 
@@ -8,7 +9,7 @@
 }
 .nav-link{
 	border-spacing: 20px;
-	font-size: 20px;
+	font-size: 18px;
 	color:white;
 	font-family:  Times New Roman;
 }
@@ -24,9 +25,10 @@
 }
 .profile{
 	height: 50px;
-	width:80px;
-	border: 10px solid;
-	border-color: red;
+	width:100px;
+	margin-left: 40px;
+	background-color: white;
+
 }
 @media(max-width: 768){
 	.carousel-item{
@@ -75,7 +77,7 @@
 
 .row{
 	padding-left: 10px;
-	background-image: url(./image/4th.jpg);
+	background-image: url(/image/4th.jpg);
 	background-repeat: no-repeat;;
 	background-size: cover;
 }

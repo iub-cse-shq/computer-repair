@@ -1,3 +1,4 @@
+
 .nav1{
 	height: 50px;
 }
@@ -23,9 +24,10 @@
 }
 .profile{
 	height: 50px;
-	width:80px;
-	border: 10px solid;
-	border-color: red;
+	width:100px;
+	margin-left: 40px;
+	background-color: white;
+
 }
 
 .header{
@@ -48,7 +50,7 @@
 	min-height:200px;
 	background-image: url(/image/sign.jpg);
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size:400px;
 }
 .col-lg-6{
 	margin-top: 10px;
@@ -105,10 +107,32 @@ hr{
   background: #bb0000;
   color: white;
 }
-@media(maxlength:768){
-	  form{
+#but{
+	margin-left: 300px;
+	margin-top: 60px;
+	height: 60px;
+	width: 130px;
+	font-size: 25px;
+	font-family: sans-serif;
+	
+}
+#but:hover {
+	background-color: green;
+	text-shadow: 30px;
+	text-decoration: none;
+	color: white;
+}
+#su:hover{
+	color:white;
+}
+#fot{
+	margin-top: 60px;
+	margin-left: 24px;
+}
+@media(max-width:768){
+	  #for{
 	  	color: green;
 	  	font-family: italic;
-	  	size: 200px;
+	  	size: 100px;
 	  }
 }

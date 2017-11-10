@@ -19,23 +19,33 @@
 .nav-link:hover{
 	background-color:#2e8b57;
 	color:white;
+	font-size: 18px;
 	font-family:georgia;
 
 }
 .profile{
 	height: 50px;
-	width:80px;
-	border: 10px solid;
-	border-color: red;
+	width:100px;
+	margin-left: 40px;
+	background-color: white;
+
 }
 @media(max-width: 768){
 	.carousel-item{
-		height:90px;
-		width:90px;
+		height:60px;
+		width:60px;
 	}
 	p{
 		font-size: 20px;
 	}
+	.sour{
+		height: 80px;
+		width:90px;
+		background-image:url(/image/contact.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	
 
 }
 .fa {

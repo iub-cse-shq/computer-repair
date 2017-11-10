@@ -23,9 +23,10 @@
 }
 .profile{
 	height: 50px;
-	width:80px;
-	border: 10px solid;
-	border-color: red;
+	width:100px;
+	margin-left: 40px;
+	background-color: white;
+
 }
 
 .header{

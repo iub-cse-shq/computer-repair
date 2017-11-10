@@ -54,7 +54,7 @@ var UserSchema = new Schema({
     username: {
         type: String,
         trim: true,
-        required: 'User Name required'
+       
     },
     photo: {
         type: String,
@@ -87,7 +87,7 @@ var UserSchema = new Schema({
     },
     provider: {
         type: String,
-        required: 'Provider is required'
+        required: ''
     },
     providerData: {},
     additionalProvidersData: {},
