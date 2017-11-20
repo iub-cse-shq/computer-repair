@@ -1,4 +1,8 @@
-
+body{
+	background-image: url(/image/j.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 .nav1{
 	height: 50px;
 }
@@ -61,6 +65,7 @@
 	background-size: cover;
 	margin-left: 30px;
 	font-family: italic;
+	opacity: 0.9;
 
 }
 .sliderfrm{
@@ -78,6 +83,7 @@ hr{
     margin-right: auto;
     border-style: inset;
     border-width: 1px;
+    color: red;
 }
 .fa {
   padding: 10px;
@@ -129,6 +135,7 @@ hr{
 	margin-top: 60px;
 	margin-left: 24px;
 }
+
 @media(max-width:768){
 	  #for{
 	  	color: green;

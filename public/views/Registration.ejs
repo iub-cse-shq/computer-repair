@@ -15,7 +15,7 @@
 
 </head>
 <body>
-    <div class="container flued">
+   
          <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top nav1">
       <div class="con">
         <img src="https://callnerds.com/wp-content/plugins/nerds-functionality/assets/img/nerds/nerd-service-laptop-repair.png"  class="profile">
@@ -41,9 +41,7 @@
             <li class="nav-item">
               <a class="nav-link" href="#"><b>Services</b></a>
             </li>
-             <li class="nav-item">
-              <a class="nav-link" href="/registration"><b>sign in</b></a>
-            </li>
+             
           </ul>
            <div class="form-inline my-2 my-lg-0" style="padding-left: 20px;">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -53,6 +51,7 @@
               
       </div>
     </nav>
+  
     <div class="header">
       <div class="container-fluid dff">
         <div class="row">
@@ -68,14 +67,14 @@
                   <tr style="margin-top: 2px;">
                      <tr>
                       <td>
-                        <label style="font-size: 23px;">First Name</label>
+                        <label  style="font-size: 23px;">First Name</label>
                       </td>
                       <td>
-                      <input  id="fname" style="font-size:20px; margin-right:300px;"
+                      <input placeholder=" Enter First Name" id="fname" style="font-size:20px; margin-right:300px;"
                        type="text" name="First Nmae" maxlength="70" 
                          size="20">
-                         <h4 id="id1" style="font-size:20px; margin-right:300px;">
-                          write your first name
+                         <h4 id="id" style="font-size:20px; margin-right:300px;">
+                          write your First name
                          </h4>
                       </td>
                     </tr>
@@ -84,10 +83,10 @@
                         <label style="font-size: 23px;">Last Name</label>
                       </td>
                       <td>
-                       <input  id="lname" style="font-size:20px; margin-right:300px;t"
+                       <input placeholder="Enter Last Name" id="lname" style="font-size:20px; margin-right:300px;"
                        type="text" name="Last Name" maxlength="70" 
                          size="20">
-                         <h4 id="id2" style="font-size:20px; margin-right:300px;">
+                         <h4 id="id" style="font-size:20px; margin-right:300px;">
                           write your Last name
                          </h4>
                       </td>
@@ -97,22 +96,22 @@
                         <label  style="font-size: 23px;margin-right: 10px;">Email</label>
                       </td>
                       <td>
-                        <input id="email" style="font-size:20px; margin-right:300px;" type="text" name="email" maxlength="70"
+                        <input placeholder="Enter email" id="email" style="font-size:20px; margin-right:300px;" type="email" name="email" maxlength="70"
                          size="20">
-                         <h4 id="id3" style="font-size:20px; margin-right:300px;">
+                         <h4 id="id" style="font-size:20px; margin-right:300px;">
                           write your email
                          </h4>
                       </td>
                     </tr>
                      <tr>
                       <td>
-                        <label style="font-size: 23px;margin-right: 10px;">Password</label>
+                        <label style="font-size: 23px;margin-rght: 10px;">Password</label>
                       </td>
                       <td>
-                        <input id="pass" style="font-size:20px; margin-right:300px;" type="password" name="password" maxlength="70"
+                        <input  placeholder="Enter password"id="pass" style="font-size:20px; margin-right:300px;" type="password" name="password" maxlength="70"
                          size="20">
-                         <h4 id="id4" style="font-size:20px; margin-right:300px;">
-                          write your password
+                         <h4 id="id4" style="font-size:20px; margin-right:300px;color:red">
+                         
                          </h4> 
                       </td>
                     </tr>
@@ -147,11 +146,9 @@
                     window.location.replace('/service');
                    }).fail(function(response){
                      console.log(response);
+                     $("#id4").text(JSON.parse(response.responseText).message);
                  
-                    $("#id1").text("Required!");
-                    $("#id2").text("Required!");
-                    $("#id3").text("Required!");
-                    $("#id4").text("Required!");
+                  
                  
              });
        });
@@ -161,7 +158,6 @@
         </div>
       </div>
     </div>
-  </div>
     <footer id="fot" class="py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy;webteam 2017</p>

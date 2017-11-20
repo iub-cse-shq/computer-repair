@@ -80,7 +80,12 @@ exports.registration = function(req, res) {
 		request: req
 	});
 };
-
+exports.login = function(req, res) {
+	res.render('./../public/views/login.ejs', {
+		user: req.user || null,
+		request: req
+	});
+};
 
 /**
  * Signout
