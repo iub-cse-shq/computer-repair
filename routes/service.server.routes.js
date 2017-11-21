@@ -2,23 +2,28 @@ module.exports = function(app){
 
  var services = require('./../controllers/services.server.controller.js');
  var users = require('./../controllers/users.server.controller.js');
+
+app.route('/service').get(services.service)
+app.route('/home').get(services.home)
+app.route('/aboutus').get(services.aboutus)
+
 app.route('/services/new')
 	.get(services.new);
 	
 app.route('/services/all')
 	.get(services.all);
 	
-app.route('/services/edit/:productId')
+app.route('/services/edit/:serviceId')
 	.get(services.edit);
 	
-app.route('/services/:productId')
+app.route('/services/:serviceId')
 	.get(services.view);
 	
  app.route('/api/services')
 	.get(services.list)
 	.post(users.requiresLogin, services.create);
 
-  app.route('/api/services/:productId')
+  app.route('/api/services/:serviceId')
 	.get(services.read)
   .delete(users.requiresLogin, services.delete);
 

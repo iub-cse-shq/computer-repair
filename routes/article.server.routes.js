@@ -2,9 +2,9 @@ module.exports = function(app){
 
  var articles = require('./../controllers/articles.server.controller.js');
  var users = require('./../controllers/users.server.controller.js');
-app.route('/service').get(articles.service)
-app.route('/home').get(articles.home)
-app.route('/aboutus').get(articles.aboutus)
+app.route('/service').get(services.service)
+app.route('/home').get(services.home)
+app.route('/aboutus').get(services.aboutus)
 
 
  app.route('/api/articles')

@@ -13,9 +13,17 @@ var ServiceSchema = {
     type: String,
     default: '',
     trim: true,
-    required:'description required'
+    required:'description required!'
    
 
+  },
+  
+  im: {
+    type: String,
+    default: '',
+    trim:true,
+    required:'image required!'
+    
   },
   user: {
     type: Schema.ObjectId,

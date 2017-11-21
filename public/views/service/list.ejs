@@ -2,10 +2,7 @@
 <h1>Service List</h1>
 <% console.log(services) %>
   <% for(var i=0; i<services.length; i++) { %>
-    <h1>Name: <%= services[i].name %> </h1>
-    <p>
-      <%= services[i].user%>
-    </p>
+    <h1><%= services[i].name %> </h1>
     <h3><%= services[i].description%></h3>
     <h3><%= services[i].created%></h3>
     <% } %>

@@ -3,6 +3,7 @@ var Article = require('./../models/Article.js');
 var errorHandler = require('./errors.server.controller');
 var _ = require('lodash');
 
+
 exports.service = function(req, res) {
 	res.render('./../public/views/service/index2.ejs', {
 		user: req.user || null,
@@ -22,6 +23,7 @@ exports.aboutus = function(req, res) {
 		request: req
 	});
 };
+
 
 module.exports.list = function(req, res) {
   Article.find(function(err, data) {

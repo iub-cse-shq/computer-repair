@@ -51,11 +51,8 @@ var UserSchema = new Schema({
         match: [/.+\@.+\..+/, 'Please fill a valid email address'],
         required: 'Email required'
     },
-    username: {
-        type: String,
-        trim: true,
-       
-    },
+   
+   
     photo: {
         type: String,
         default: 'http://www.ee-ip.org/sites/default/files/default_images/default-user.png',
