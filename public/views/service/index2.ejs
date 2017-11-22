@@ -72,7 +72,7 @@
          <% for(var i=0; i<services.length; i++) { %>
         <div class="box1"style="background: white;">
           <img src="<%= services[i].im %>" style="height: 40px;width: 40px; float: left">
-         <h3><a href=""><%= services[i].name %></a></h3>
+         <h3><a href="/services/<%=services[i]._id%>"><%= services[i].name %></a></h3>
          <p style="font-size: 14.5px;"><%= services[i].description%></p>
        </div>
     

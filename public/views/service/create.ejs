@@ -37,10 +37,6 @@
               <a class="nav-link" href="/"><b>create</b></a>
             </li>
            
-             <li class="nav-item">
-              <a onclick="service(event)" class="nav-link" href="/"><b>Add</b></a>
-            </li>
-            
             <li class="nav-item">
               <a onclick="service(event)" class="nav-link" href="/"><b>delete</b></a>
             </li>
@@ -68,28 +64,56 @@
       <div class="header">
       <div class="container-fluid dff">
         <div class="row">
-          <div class="col-lg-4">  
+          <div class="col-lg-4">
+             <img src="/image/cr.jpg"style="height:300px;width:100%;">
           </div>
           <div class="col-lg-6">
              <div class="container">
-                  <label type="text" style="font-size:30px;">service name</label>
-                  <br>
-                  <input id="name"type="text" placeholder="enter service name"style="height:30px;width:200px; font-size:23px;"></input>
-                  <br>
-                  <br>
-                  <label type="text" style="font-size:30px;" >description</label><br>
-                  <textarea id="description" type="text"placeholder="write description" style="height:200px;width:200px; font-size:23px;"></textarea>
-                  <br>
+                <table width="700px">
+                  <tr style="margin-top: 2px;">
+                    
+                  <tr>
+                    <td>
+                      <label type="text" style="font-size:25px;">Service:</label>
+                    </td>
+                    <td>
+                       <input id="name"type="text" placeholder="Enter service name"style="height:30px;width:300px;font-size:18px;padding-left:10px;margin-right:500px;"></input>
+                    </td>
+                  </tr>
                   
-                  <label type="text" style="font-size:30px;">Image</label>
-                  <br>
-                  <input id="im"type="text" placeholder="Give image"style="height:30px;width:200px;font-size:23px;"></input>
-                  <br>
-                  <h5 id="id4" style="color:red"></h5>
+                    <tr>
+                    <td>
+                        <label type="text" style="font-size:30px;">Image:</label>
+                    </td>
+                    <td>
+                       <input id="im"type="text" placeholder="Give image url"style="height:30px;width:300px;font-size:18px;padding-left:10px;margin-right:500px;"></input>
+                       <h5 id="id4" style="color:red"></h5>
+                    </td>
+                  </tr>
                   
-                  <button id="submit">submit</button>
-                   <script src="/lib/jquery/dist/jquery.min.js"></script>
-                <script>
+                   <tr>
+                    <td>
+                        <label type="text" style="font-size:30px;">Price:</label>
+                    </td>
+                    <td>
+                       <input id="price"type="text" placeholder="Enter Price"style="height:30px;width:300px;font-size:18px;padding-left:10px;margin-right:500px;"></input>
+                       <h5 id="id4" style="color:red"></h5>
+                    </td>
+                  </tr>
+                  
+                    <tr>
+                    <td>
+                       <label type="text" style="font-size:25px;margin-bottom:300px;" >Description:</label><br>
+                    </td>
+                    <td>
+                       <textarea id="description" type="text"placeholder="write Something.." style="height:300px;width:300px;font-size:18px;padding-left:8px;margin-right:500px;margin-top:20px;"></textarea>
+                    </td>
+                  </tr>
+                  
+                </table>
+               <button id="submit">submit</button>
+               <script src="/lib/jquery/dist/jquery.min.js"></script>
+               <script>
                var service={name:"", description:"" };
              $("#name").change(function(){
                 service.name=$("#name").val();
@@ -101,6 +125,7 @@
             $("#im").change(function(){
                 service.im=$("#im").val();
             });
+            
             
              $("#submit").click(function(){
                  console.log(service);

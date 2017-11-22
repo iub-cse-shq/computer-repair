@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>online_computer_service</title>
+    <link href="/vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/full-slider.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top nav1">
+      <div class="con">
+       <img src="https://callnerds.com/wp-content/plugins/nerds-functionality/assets/img/nerds/nerd-service-laptop-repair.png"  class="profile">
+        </div>
+      <div class="container fle">
+        <a class="navbar-brand" href="#" style="color:orange">Computer Repair</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/home"><b>Home</b>
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/"><b>create</b></a>
+            </li>
+           
+            <li class="nav-item">
+              <a onclick="service(event)" class="nav-link" href="/"><b>delete</b></a>
+            </li>
+            
+            <li class="nav-item">
+              <a onclick="service(event)" class="nav-link" href="/"><b>edit</b></a>
+            </li>
+            
+           <li class="nav-item">
+              <a class="nav-link" href="/"><b>Logout</b></a>
+            </li>
+            
+          </ul>
+        
+           <form class="form-inline my-2 my-lg-0" style="padding-left: 20px;">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+        </div>
+              
+      </div>
+    </nav>
+    
+    
+      <div class="header">
+      <div class="container-fluid dff">
+        <div class="row">
+          <div class="col-lg-4">
+             <img src="/image/cr.jpg"style="height:300px;width:100%;">
+          </div>
+          <div class="col-lg-6">
+             <div class="container">
+                <table width="700px">
+                  <tr style="margin-top: 2px;">
+                    
+                  <tr>
+                    <td>
+                      <label type="text" style="font-size:25px;">Service:</label>
+                    </td>
+                    <td>
+                       <input id="name"type="text" placeholder="Enter service name"
+                       style="height:30px;width:300px;font-size:18px;padding-left:10px;margin-right:500px;"><%=request.service.name%></input>
+                    </td>
+                  </tr>
+                  
+                    <tr>
+                    <td>
+                        <label type="text" style="font-size:30px;">Image:</label>
+                    </td>
+                    <td>
+                       <input id="im"type="text" placeholder="Give image url"style="height:30px;width:300px;font-size:18px;padding-left:10px;margin-right:500px;" 
+                    value=<%=request.service.im%>>
+                       <h5 id="id4" style="color:red"></h5> 
+                    </td>
+                  </tr>
+                  
+                    <tr>
+                    <td>
+                       <label type="text" style="font-size:25px;margin-bottom:300px;" >Description:</label><br>
+                    </td>
+                    <td>
+                       <textarea id="description" type="text"placeholder="write Something.." 
+                       style="height:300px;width:300px;font-size:18px;padding-left:8px;margin-right:500px;margin-top:20px;" ><%=request.service.description%></textarea>
+                    </td>
+                  </tr>
+                  
+                </table>
+               <button id="submit">submit</button>
+               <script src="/lib/jquery/dist/jquery.min.js"></script>
+               <script>
+               var service={name:"", description:"" };
+             $("#name").change(function(){
+                service.name=$("#name").val();
+            });
+             $("#description").change(function(){
+                service.description=$("#description").val();
+            });
+            
+            $("#im").change(function(){
+                service.im=$("#im").val();
+            });
+            
+             $("#submit").click(function(){
+                 console.log(service);
+              $.ajax({
+                  method:"POST",
+                  url:"/api/services",
+                  data:service
+              }).done(function(response){
+                  console.log(response);
+                  window.location.replace("/services/"+response._id);
+              }).fail(function(response){
+                  $("#id4").text(JSON.parse(response.responseText).message);
+                  console.log(JSON.parse(response.responseText).message);
+              });
+            });
+        </script>
+             </div> 
+        </div>
+      </div>
+    </div>
+</div>
+      
+
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy;webteam 2017</p>
+      </div>
+         <center>
+          <ul id="ex">
+            <li>
+              <a href="https://www.facebook.com/sojib.ahmed.545402" class="fa   fa-facebook"></a>
+              <a href="#" class="fa fa-twitter"></a>
+              <a href="#" class="fa fa-youtube"></a>
+            </li>
+           </ul>
+        </center>
+    </footer>
+
+    <script src="/vendor/jquery.min.js"></script>
+    <script src="/vendor/popper.min.js"></script>
+    <script src="/vendor/bootstrap.min.js"></script>
+
+  </body>
+
+</html>

@@ -1,13 +1,129 @@
-<html>
-    <head>
-        <title> PC service</title>
-    </head>
-    <body>
-        <h1>Service name</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title><%= request.service.name %></title>
+    <link href="/vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/full-slider.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/services.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+  
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top nav1">
+      <div class="con">
+        <img src="https://callnerds.com/wp-content/plugins/nerds-functionality/assets/img/nerds/nerd-service-laptop-repair.png"  class="profile">
+        </div>
+      <div class="container fle">
+        <a class="navbar-brand" href="#" style="color:orange">Computer Repair</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/home"><b>Home</b>
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/service"><b>services</b></a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" href="#"><b>Pheripheral support</b></a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" href="#"><b>signout</b></a>
+            </li>
+          </ul>
+           <form class="form-inline my-2 my-lg-0" style="padding-left: 20px;">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+        </div>
+              
+      </div>
+    </nav>
+    <div class="sour" style="height: 300px;width: 100%;background:url(/image/contact.jpg);background-size: cover;"> 
+    </div>
+    <div class="midl">
+      <h3 style="">24/7 Online Computer Support - A Complete Solution for All PC Issues</h3>
+      <p>
+        Our computer services are specially structured to focus on specific needs. Microsoft Certified Professional Technicians provide you technical assistance, computer support, diagnose problems and repair errors found in your software, hardware, connectivity and security<br>
+        Our consistent support service offers specialized assistance for Virus Detection, Virus Removal as well as peripheral devices like Printers, MP3 Players, Email and much more.<br>
+        Call MyTechSupportStore Today! We offer reliable 24/7 online tech support to help you with all your computer problems. Our technical support process and PC security tools are easy to avail and makes your PC less vulnerable to malicious attacks.
+
+      </p>
+    </div>
+    <div class="cle" style="">
+     <div class="row" >
+      <div class="col-md-8">
+          
+        <h2 style="color:orange;font-size: 25px;"><u><%= request.service.name %></u></h2>
         <% console.log(request.service)%>
-        <h2>name: <%= request.service.name %></h2>
-        <p> description: <%= request.service.description %> </p>
+        <h2><%=request.service.price %>$</h2>
+        <ul>
+            <li><h4><b>
+                12 month guarantee
+            </b></h4></li>
+            
+            <li><h4><b>
+               Covers you for the fault we repair
+            </b></h4></li>
+            
+            <li><h4><b>
+               Repaired in store or at our state-of-the-art repair lab
+            </b></h4></li>
+        </ul>
+        <h1>CALL US:01676024772,01976024772</h1>
+        <P>
+            Please have your make, model and serial number handy
+        </P>
+         
+       </div>
+        
+        
+      <div class="col-md-4" style=" height:700px; ">
+          <h1 style="color: green">Get a FREE PC Health Check Up</h1>
+          <p><a href="">click here</a> or call: 01967356012</p>
+          <label><p>
+            If you have any other problems.please write below.
+          </p></label>
+          <textarea style="height: 200px;width: 400px;"> </textarea>
+          <center>
+            <button id="sen" style="width: 100px;">send</button>
+          </center>
+      </div>
+     </div>
       
-        <p>created:<%= request.service.created %> </p>
-    </body>
+    </div>
+     
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy;webteam 2017</p>
+      </div>
+         <center>
+          <ul id="ex">
+            <li>
+              <a href="https://www.facebook.com/sojib.ahmed.545402" class="fa   fa-facebook"></a>
+              <a href="#" class="fa fa-twitter"></a>
+              <a href="#" class="fa fa-youtube"></a>
+            </li>
+           </ul>
+        </center>
+    </footer>
+
+    <script src="/vendor/jquery.min.js"></script>
+    <script src="/vendor/popper.min.js"></script>
+    <script src="/vendor/bootstrap.min.js"></script>
+
+  </body>
+
 </html>

@@ -25,6 +25,7 @@ var ServiceSchema = {
     required:'image required!'
     
   },
+
   user: {
     type: Schema.ObjectId,
     ref: 'User'
