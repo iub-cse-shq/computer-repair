@@ -4,12 +4,7 @@ var errorHandler = require('./errors.server.controller');
 var _ = require('lodash');
 
 
-exports.service = function(req, res) {
-	res.render('./../public/views/service/index2.ejs', {
-		user: req.user || null,
-		request: req
-	});
-};
+
 
 exports.home = function(req, res) {
 	res.render('./../public/views/index.ejs', {

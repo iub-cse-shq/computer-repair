@@ -3,9 +3,8 @@ module.exports = function(app){
  var services = require('./../controllers/services.server.controller.js');
  var users = require('./../controllers/users.server.controller.js');
 
-app.route('/service').get(services.service)
-app.route('/home').get(services.home)
-app.route('/aboutus').get(services.aboutus)
+app.route('/service')
+    .get(services.service)
 
 app.route('/services/new')
 	.get(services.new);

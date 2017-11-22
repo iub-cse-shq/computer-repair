@@ -149,7 +149,7 @@
                     data: user
                    }).done(function(response){
                      console.log(response);
-                    window.location.replace('/service');
+                    window.location.replace('/services/all');
                    }).fail(function(response){
                      console.log(response);
                      $("#id4").text(JSON.parse(response.responseText).message);
