@@ -68,7 +68,11 @@
           
         <h2 style="color:orange;font-size: 25px;"><u><%= request.service.name %></u></h2>
         <% console.log(request.service)%>
+        <div class="container" id="htmlp">
+          <img src="<%=request.service.im %>" style="height:400px;width:500px;margin-right:500px;">
         <h2><%=request.service.price %>$</h2>
+        <p> <%=request.service.description %></p>
+        </div>
         <ul>
             <li><h4><b>
                 12 month guarantee
@@ -86,6 +90,7 @@
         <P>
             Please have your make, model and serial number handy
         </P>
+        <a href="javascript:genPDF()">download bill</a>
          
        </div>
         
@@ -123,6 +128,13 @@
     <script src="/vendor/jquery.min.js"></script>
     <script src="/vendor/popper.min.js"></script>
     <script src="/vendor/bootstrap.min.js"></script>
+    <script src="/vendor/jquery-3.2.1.min.js"></script>
+    <script src="/vendor/jspdf.js"></script>
+    <script src="/vendor/pdfFromHTML.js"></script>
+    
+    
+
+    
 
   </body>
 

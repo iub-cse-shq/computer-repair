@@ -78,7 +78,7 @@
                     </td>
                     <td>
                        <input id="name"type="text" placeholder="Enter service name"
-                       style="height:30px;width:300px;font-size:18px;padding-left:10px;margin-right:500px;"><%=request.service.name%></input>
+                       style="height:30px;width:300px;font-size:18px;padding-left:10px;margin-right:500px;" value=<%=request.service.name%>>
                     </td>
                   </tr>
                   
@@ -89,6 +89,17 @@
                     <td>
                        <input id="im"type="text" placeholder="Give image url"style="height:30px;width:300px;font-size:18px;padding-left:10px;margin-right:500px;" 
                     value=<%=request.service.im%>>
+                       <h5 id="id4" style="color:red"></h5> 
+                    </td>
+                  </tr>
+                  
+                   <tr>
+                    <td>
+                        <label type="text" style="font-size:30px;">price:</label>
+                    </td>
+                    <td>
+                       <input id="im"type="text" placeholder="Give image url"style="height:30px;width:300px;font-size:18px;padding-left:10px;margin-right:500px;" 
+                    value=<%=request.service.price%>>
                        <h5 id="id4" style="color:red"></h5> 
                     </td>
                   </tr>
@@ -107,12 +118,15 @@
                <button id="submit">submit</button>
                <script src="/lib/jquery/dist/jquery.min.js"></script>
                <script>
-               var service={name:"", description:"" };
+               var service={name:"", description:"",price:"" };
              $("#name").change(function(){
                 service.name=$("#name").val();
             });
              $("#description").change(function(){
                 service.description=$("#description").val();
+            });
+             $("#price").change(function(){
+                service.price=$("#price").val();
             });
             
             $("#im").change(function(){
@@ -122,8 +136,8 @@
              $("#submit").click(function(){
                  console.log(service);
               $.ajax({
-                  method:"POST",
-                  url:"/api/services",
+                  method:"PUT",
+                  url:"/api/services/edit/"+serviceId,
                   data:service
               }).done(function(response){
                   console.log(response);

@@ -114,12 +114,16 @@
                <button id="submit">submit</button>
                <script src="/lib/jquery/dist/jquery.min.js"></script>
                <script>
-               var service={name:"", description:"" };
+               var service={name:"", description:"" ,price:""};
              $("#name").change(function(){
                 service.name=$("#name").val();
             });
              $("#description").change(function(){
                 service.description=$("#description").val();
+            });
+            
+            $("#price").change(function(){
+                service.price=$("#price").val();
             });
             
             $("#im").change(function(){

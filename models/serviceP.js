@@ -25,7 +25,13 @@ var ServiceSchema = {
     required:'image required!'
     
   },
-
+price:{
+  type:Number,
+  default:'0',
+  trim:true,
+  required:'price required!'
+  
+},
   user: {
     type: Schema.ObjectId,
     ref: 'User'
