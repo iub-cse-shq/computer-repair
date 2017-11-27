@@ -26,7 +26,7 @@ app.route('/services/:serviceId')
 	.get(services.read)
   .delete(users.requiresLogin, services.delete);
 
-	app.route('/api/services/edit/:productId')
+	app.route('/api/services/edit/:serviceId')
 	.get(services.read)
 	.put(users.requiresLogin, services.update);
 

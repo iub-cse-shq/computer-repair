@@ -60,7 +60,7 @@
           <div class="col-lg-6">
             <div class="silderfrm">
                Sign up<br>
-               <h5>You have to register first</h5>
+               <h5 id="suc">You have to register first</h5>
                <hr>
                <div id="for">
                 <table width="700px">
@@ -136,6 +136,11 @@
                      $("#lname").change(function(){
                       user.lastName=$("#lname").val();
                      });
+                     
+                      $("#uname").change(function(){
+                      user.username=$("#uname").val();
+                     });
+                     
                      $("#email").change(function(){
                     user.email=$("#email").val();
                      });
@@ -150,6 +155,7 @@
                    }).done(function(response){
                      console.log(response);
                     window.location.replace('/services/all');
+                    $("#suc").text("Registration sucessful")
                    }).fail(function(response){
                      console.log(response);
                      $("#id4").text(JSON.parse(response.responseText).message);

@@ -98,7 +98,7 @@
                         <label type="text" style="font-size:30px;">price:</label>
                     </td>
                     <td>
-                       <input id="im"type="text" placeholder="Give image url"style="height:30px;width:300px;font-size:18px;padding-left:10px;margin-right:500px;" 
+                       <input id="price"type="text" placeholder="price"style="height:30px;width:300px;font-size:18px;padding-left:10px;margin-right:500px;" 
                     value=<%=request.service.price%>>
                        <h5 id="id4" style="color:red"></h5> 
                     </td>
@@ -118,7 +118,11 @@
                <button id="submit">submit</button>
                <script src="/lib/jquery/dist/jquery.min.js"></script>
                <script>
-               var service={name:"", description:"",price:"" };
+               var service={};
+               
+            var serviceID=<%- JSON.stringify(request.service._id)%>;
+            
+               
              $("#name").change(function(){
                 service.name=$("#name").val();
             });
@@ -137,14 +141,14 @@
                  console.log(service);
               $.ajax({
                   method:"PUT",
-                  url:"/api/services/edit/"+serviceId,
+                  url:"/api/services/edit/"+serviceID,
                   data:service
               }).done(function(response){
                   console.log(response);
-                  window.location.replace("/services/"+response._id);
+                  window.location.replace("/service");
               }).fail(function(response){
-                  $("#id4").text(JSON.parse(response.responseText).message);
-                  console.log(JSON.parse(response.responseText).message);
+                // $("#id4").text(JSON.parse(response.responseText).message);
+                  console.log(response.responseText);
               });
             });
         </script>

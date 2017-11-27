@@ -4,11 +4,23 @@ var errorHandler = require('./errors.server.controller');
 var _ = require('lodash');
 
 exports.service = function(req, res) {
-	res.render('./../public/views/service/index2.ejs', {
+    Service.find(function(err, data) {
+    if (err) {
+      return res.status(400).send({
+
+  				message: errorHandler.getErrorMessage(err)
+  			});
+    } else {
+      console.log("api called");
+
+      	res.render('./../public/views/service/index2.ejs', {
 		user: req.user || null,
 		request: req,
-		services:[]
+		services:data
 	});
+    }
+  });
+
 };
 
 exports.edit=function(req,res){

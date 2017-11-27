@@ -91,6 +91,28 @@
             Please have your make, model and serial number handy
         </P>
         <a href="javascript:genPDF()">download bill</a>
+        
+        <button id="Delete" type="text"> Delete</button>
+        <script src="/lib/jquery/dist/jquery.min.js"></script>
+        <script>
+        var serviceID=<%- JSON.stringify(request.service._id)%>;
+           $("#Delete").click(function(){
+                
+              $.ajax({
+                  method:"DELETE",
+                  url:"/api/services/"+serviceID
+                
+              }).done(function(response){
+                  console.log(response);
+                  window.location.replace("/service");
+              }).fail(function(response){
+              
+                  console.log(JSON.parse(response.responseText).message);
+              });
+            });
+          
+        </script>
+        
          
        </div>
         

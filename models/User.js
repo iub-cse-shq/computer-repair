@@ -30,14 +30,20 @@ var UserSchema = new Schema({
         type: String,
         trim: true,
         default: '',
-        required: 'First Name required'
+        required: 'First Name required!'
       },
 
     lastName: {
         type: String,
         trim: true,
         default: '',
-        required: 'Last Name required'
+        required: 'Last Name required!'
+      },
+      username:{
+        type:String,
+        trim:true,
+        default:'',
+        required:'username required!'
       },
 
     displayName: {
@@ -49,7 +55,7 @@ var UserSchema = new Schema({
         trim: true,
         unique: 'Email already exists',
         match: [/.+\@.+\..+/, 'Please fill a valid email address'],
-        required: 'Email required'
+        required: 'Email required!'
     },
    
    
