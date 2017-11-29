@@ -1,7 +1,11 @@
+html{
+	width: 100%;
+}
 body{
 	background-image: url(/image/j.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
+	margin-right: 30px;
 }
 .nav1{
 	height: 50px;

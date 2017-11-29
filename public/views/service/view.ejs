@@ -113,7 +113,9 @@
           
         <button id="bill" onclick="HTMLtoPDF()" style="height:30px;width:200px;background:green;color:white;">Download Bill</a>
         
+      <% if(user.roles.indexOf('admin') != -1) {%>
         <button id="Delete" type="text"> Delete</button>
+        <%}%>
         <script src="/lib/jquery/dist/jquery.min.js"></script>
         <script>
         var serviceID=<%- JSON.stringify(request.service._id)%>;

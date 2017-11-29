@@ -37,10 +37,21 @@
             <li class="nav-item">
               <a class="nav-link" href="/aboutus"><b>About us</b></a>
             </li>
+           <% if(user==null){%>
            
-             <li class="nav-item">
-              <a onclick="service(event)" class="nav-link" href="/registration"><b>services</b></a>
+           <li class="nav-item">
+              <a  class="nav-link" href="/registration"><b>registration</b></a>
             </li>
+           <%}%>
+           
+           <% if(user!=null){%>
+           
+           <li class="nav-item">
+              <a  class="nav-link" href="/service"><b>services</b></a>
+            </li>
+           <%}%>
+             
+             
            <li class="nav-item">
               <a class="nav-link" href="#" data-toggle="modal" data-target="#login-modal"><b>SignIn</b></a>
             </li>
@@ -58,13 +69,13 @@
     
       <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     	 <div class="modal-dialog">
-				<div class="loginmodal-container" style="background:#4a6187;margin-top:100px;">
+				<div class="loginmodal-container" style="background:#4a6187;margin-top:100px;border-radius:2%;">
 					
-					  <button type="button" class="close" data-dismiss="modal" >&times;</button>
+					  <button type="button" class="close" data-dismiss="modal" style="padding-right:10px;" >&times;</button>
 				  
-				  <h1>Login to Your Account</h1><br>
+				  <h1 style="color:white;">Login</h1><br>
 				  <label type="text" id="id4"></label>
-					<input type="text" id="uname" placeholder="Username">
+					<input type="text" id="uname" placeholder="Email">
 					<input type="password" id="pass" placeholder="Password">
 					<input type="submit" id="but" class="login loginmodal-submit" value="Login">
 				  <script src="/lib/jquery/dist/jquery.min.js"></script>
@@ -72,7 +83,7 @@
 				    var user={};
                      
                     $("#uname").change(function(){
-                      user.username=$("#uname").val();
+                      user.email=$("#uname").val();
                      });
               
                      $("#pass").change(function(){
@@ -82,7 +93,7 @@
                     $("#but").click(function(event){
                     $.ajax({
                     method: 'POST',
-                    url: "/auth/signup",
+                    url: "/auth/signin",
                     data: user
                    }).done(function(response){
                      console.log(response);
