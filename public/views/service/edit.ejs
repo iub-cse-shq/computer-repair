@@ -20,7 +20,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top nav1">
       <div class="con">
-       <img src="https://callnerds.com/wp-content/plugins/nerds-functionality/assets/img/nerds/nerd-service-laptop-repair.png"  class="profile">
+       <img src="https://www.graphicsprings.com/filestorage/stencils/fef1c295c28fa66259d253156c63a459.svg"  class="profile">
         </div>
       <div class="container fle">
         <a class="navbar-brand" href="#" style="color:orange">Computer Repair</a>
@@ -34,20 +34,9 @@
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/"><b>create</b></a>
-            </li>
-           
-            <li class="nav-item">
-              <a onclick="service(event)" class="nav-link" href="/"><b>delete</b></a>
-            </li>
-            
-            <li class="nav-item">
-              <a onclick="service(event)" class="nav-link" href="/"><b>edit</b></a>
-            </li>
             
            <li class="nav-item">
-              <a class="nav-link" href="/"><b>Logout</b></a>
+              <a class="nav-link" href="/" id="sin"><b>signout</b></a>
             </li>
             
           </ul>
@@ -59,6 +48,16 @@
         </div>
               
       </div>
+       <% if(user!=null && (user.roles.indexOf('admin') != -1)){%>
+      <div>
+      <ul id="">
+            <li>
+              <i style="color:white;size:90px;margin-top:30px;margin-right:80px;text-decoration:none;"  class="fa fa-user-circle-o" aria-hidden="true"><h2></h2 style="color:blue">WELCOME<%=request.user.firstName %></h2></i> 
+            </li>
+           </ul>
+      
+      </div>
+      <%}%>
     </nav>
     
     
@@ -152,8 +151,23 @@
                   console.log(response.responseText);
               });
             });
-        </script>
-             </div> 
+            
+       $("#sin").click(function(event){
+                    $.ajax({
+                    method: 'GET',
+                    url: "/auth/signout",
+                    
+                   }).done(function(response){
+                     console.log(response);
+                    window.location.replace('/home');
+                   }).fail(function(response){
+                     
+                   });
+             });
+            
+                </script>
+      
+           </div> 
         </div>
       </div>
     </div>

@@ -23,6 +23,13 @@ exports.service = function(req, res) {
 
 };
 
+exports.orderlist=function(req,res){
+  res.render('./../public/views/service/orderlist.ejs',{
+    user:req.user || null,
+    request:req
+  });
+};
+
 exports.edit=function(req,res){
   res.render('./../public/views/service/edit.ejs',{
     user:req.user || null,

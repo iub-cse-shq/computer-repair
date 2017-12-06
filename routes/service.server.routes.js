@@ -5,7 +5,7 @@ module.exports = function(app){
 
 app.route('/service')
     .get(services.service)
-
+    
 app.route('/services/new')
 	.get(services.new);
 	

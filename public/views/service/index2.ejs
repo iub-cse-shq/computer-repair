@@ -20,7 +20,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top nav1">
       <div class="con">
-        <img src="https://callnerds.com/wp-content/plugins/nerds-functionality/assets/img/nerds/nerd-service-laptop-repair.png"  class="profile">
+        <img src="https://www.graphicsprings.com/filestorage/stencils/fef1c295c28fa66259d253156c63a459.svg"  class="profile">
         </div>
       <div class="container fle">
         <a class="navbar-brand" href="#" style="color:orange">Computer Repair</a>
@@ -38,10 +38,7 @@
               <a class="nav-link" href="/service"><b>services</b></a>
             </li>
              <li class="nav-item">
-              <a class="nav-link" href="#"><b>Pheripheral support</b></a>
-            </li>
-             <li class="nav-item">
-              <a class="nav-link" href="#"><b>signout</b></a>
+              <a class="nav-link" href="#" id="sin"><b>signout</b></a>
             </li>
           </ul>
            <form class="form-inline my-2 my-lg-0" style="padding-left: 20px;">
@@ -51,7 +48,18 @@
         </div>
               
       </div>
+       <% if(user!=null){%>
+      <div>
+      <ul id="">
+            <li>
+              <i style="color:white;size:40px;margin-top:30px;margin-right:80px;"  class="fa fa-user-circle-o" aria-hidden="true"><h2></h2 style="color:blue">Welcome:<%=request.user.firstName %></h2></i> 
+            </li>
+           </ul>
+      
+      </div>
+      <%}%>
     </nav>
+    
     <div class="sour" style="height: 300px;width: 100%;background:url(/image/contact.jpg);background-size: cover;"> 
     </div>
     <div class="midl">
@@ -82,75 +90,7 @@
         <% } %>
        </div>
         
-        <div class="box1"style="background: white;">
-          <img src="/image/com.jpg" style="height: 40px;width: 40px; float: left">
-          <h3><a href=" ">computer maintainces</a></h3>
-          <p style="font-size: 14.5px;">Computer support works wonders and helps take your profession to a whole new level. Today remote tech support is available...</p>
-        </div>
-        
-        <div class="box2"style="background: white;">
-           <img src="/image/mozila.jpg" style="height: 40px;width: 40px; float: left">
-          <h3><a href=""> web Browser</a></h3>
-          <p>
-            <strong>Browser Support service</strong> is much needed today due to the advent of the internet. With <strong>browser online help</strong> available easily, you can troubleshoot...
-          </p>
-        </div>
-        
-        <div class="box3"style="background: white;">
-          <img src="/image/opti.jpg" style="height: 40px;width: 40px; float: left">
-          <h3><a href="">Computer Optimization</a></h3>
-          <p style="font-size: 14.5px;">
-            Our computer optimization support is designed for all computers and laptops brands. Speed up your computer with...
-          </p>
-        </div>
-        
-        <div class="clear" style="margin-top: 10px;"></div>
-        <div class="box1"style="background: white;">
-          <img src="/image/download.jpg" style="height: 40px;width: 40px; float: left">
-          <h3><a href="">Network soluation</a></h3>
-          <p>In this internet era, you can’t think of not being connected, so the need for wireless network setup is critical – no work can be fruitfully completed without network support</p>
-        </div>
-        
-        <div class="box2"style="background: white;">
-          <img src="/image/lptp.jpg" style="height: 40px;width: 40px; float: left">
-          <h3><a href="">Fix Laptop</a></h3>
-          <p>
-            If you use a laptop, support for laptop is a necessity. Laptop repair services can take good care and keep you running. Laptop users.
-          </p>
-        </div>
-        
-        <div class="box3"style="background: white;">
-          <img src="/image/soft.jpg" style="height: 40px;width: 40px; float: left">
-          <h3><a href="">Software Problems</a></h3>
-          <p style="font-size: 14.5px;">
-            Computer software support and the right kind of computer support have become critical for any work environment today. Things are bound to go wrong...
-          </p>
-        </div>
-        
-        <div class="clear"></div>
-        <div class="box1"style="background: white;">
-          <img src="/image/mac.jpg" style="height: 40px;width: 40px; float: left">
-          <h3><a href="">OS/Mac</a></h3>
-          <p>In this internet era, you can’t think of not being connected, so the need for wireless network setup is critical – no work can be fruitfully completed without network support</p>
-        </div>
-        
-        <div class="box2"style="background: white;">
-          <img src="/image/antiv.jpg" style="height: 40px;width: 40px; float: left">
-          <h3><a href="">AntiVirus</a></h3>
-          <p>
-            If you use a laptop, support for laptop is a necessity. Laptop repair services can take good care and keep you running. Laptop users.
-          </p>
-        </div>
-        
-        <div class="box3"style="background: white;">
-          <img src="/image/Virus.png" style="height: 40px;width: 40px; float: left">
-          <h3><a href="">Viras Removal</a></h3>
-          <p style="font-size: 14.5px;">
-            Computer software support and the right kind of computer support have become critical for any work environment today. Things are bound to go wrong...
-          </p>
-        </div>
-        
-        
+       
           
         
       </div>
@@ -168,8 +108,24 @@
      </div>
       
     </div>
+    <script src="/lib/jquery/dist/jquery.min.js"> </script>
+    <script>
+       $("#sin").click(function(event){
+                    $.ajax({
+                    method: 'GET',
+                    url: "/auth/signout",
+                    
+                   }).done(function(response){
+                     console.log(response);
+                    window.location.replace('/home');
+                   }).fail(function(response){
+                     
+                   });
+             });
+            
+    </script>
      
-    <footer class="py-5 bg-dark">
+    <footer id="fot" class="py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy;webteam 2017</p>
       </div>

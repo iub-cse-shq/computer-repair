@@ -14,13 +14,51 @@
     <link href="/vendor/full-slider.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/services.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      #Delete{
+        height:50px;
+        width:200px;
+        cursor:pointer;
+        background:red;
+        box-shadow:5px;
+        font-size:23px;
+        
+      }
+      #add{
+        height:50px;
+        width:200px;
+        cursor:pointer;
+        background:#289170;
+        box-shadow:5px;
+        font-size:23px;
+        
+      }
+      #edt{
+        height:50px;
+        width:200px;
+        cursor:pointer;
+        background:#289170;
+        box-shadow:5px;
+        font-size:23px;
+        
+      }
+      #bill{
+        height:50px;
+        width:300px;
+        cursor:pointer;
+        box-shadow:5px;
+        border-radius:6%;
+      }
+      
+      
+    </style>
 
   </head>
   
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top nav1">
       <div class="con">
-        <img src="https://callnerds.com/wp-content/plugins/nerds-functionality/assets/img/nerds/nerd-service-laptop-repair.png"  class="profile">
+       <img src="https://www.graphicsprings.com/filestorage/stencils/fef1c295c28fa66259d253156c63a459.svg"  class="profile">
         </div>
       <div class="container fle">
         <a class="navbar-brand" href="#" style="color:orange">Computer Repair</a>
@@ -37,21 +75,30 @@
             <li class="nav-item">
               <a class="nav-link" href="/service"><b>services</b></a>
             </li>
+            
              <li class="nav-item">
-              <a class="nav-link" href="#"><b>Pheripheral support</b></a>
-            </li>
-             <li class="nav-item">
-              <a class="nav-link" href="#"><b>signout</b></a>
+              <a class="nav-link" href="#" id="sin"><b>signout</b></a>
             </li>
           </ul>
            <form class="form-inline my-2 my-lg-0" style="padding-left: 20px;">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+           </form>
         </div>
               
       </div>
+       <% if(user!=null){%>
+      <div>
+      <ul id="">
+            <li>
+              <i style="color:white;size:40px;margin-top:30px;margin-right:80px;"  class="fa fa-user-circle-o" aria-hidden="true"><h2></h2 style="color:blue">WELCOME<%=request.user.firstName %></h2></i> 
+            </li>
+           </ul>
+      
+      </div>
+      <%}%>
     </nav>
+    
     <div class="sour" style="height: 300px;width: 100%;background:url(/image/contact.jpg);background-size: cover;"> 
     </div>
     <div class="midl">
@@ -73,7 +120,7 @@
         <div class="container">
           <img src="<%=request.service.im %>" style="height:400px;width:500px;margin-right:500px;">
         <h2><%=request.service.price %>$</h2>
-        <p> <%=request.service.description %></p>
+        <p style="font-size:20px;"> <%=request.service.description %></p>
         </div>
         <ul>
             <li><h4><b>
@@ -110,15 +157,22 @@
             Any further enquery contact this number:01967356012.
           </h1>
         </div>
-          
-        <button id="bill" onclick="HTMLtoPDF()" style="height:30px;width:200px;background:green;color:white;">Download Bill</a>
+        <h2>If you are ready for get our service which is your problem related click the download button and contact with us.</h2>
+        <button id="bill" onclick="HTMLtoPDF()" style="height:60px;width:300px;background:green;color:white;" class="fa fa-download" aria-hidden="true">Download Bill</a>
+         
+     <br>
         
       <% if(user.roles.indexOf('admin') != -1) {%>
+         
         <button id="Delete" type="text"> Delete</button>
+        <a href="/services/new"> <button style="" id="add" type="button">Add</button></a>
+       <button id="edt" type="button">Edit</button></a>
+        
         <%}%>
         <script src="/lib/jquery/dist/jquery.min.js"></script>
         <script>
         var serviceID=<%- JSON.stringify(request.service._id)%>;
+        var service={};
            $("#Delete").click(function(){
                 
               $.ajax({
@@ -133,6 +187,42 @@
                   console.log(JSON.parse(response.responseText).message);
               });
             });
+            
+            $("#edt").click(function(){
+                window.location.replace("/services/edit/"+serviceID);
+             
+            });
+            //var orderlist={name:"",email:"",price:""}
+       /*   $("#confirm").click(function(){
+                
+              $.ajax({
+                method:"POST",
+                url:"/api/orderlist",
+                data:orderlist
+                  
+                
+              }).done(function(response){
+                  console.log(response);
+                  window.location.replace("/orderlist");
+              }).fail(function(response){
+              
+                  
+              });
+           });*/
+            
+             $("#sin").click(function(event){
+                    $.ajax({
+                    method: 'GET',
+                    url: "/auth/signout",
+                    
+                   }).done(function(response){
+                     console.log(response);
+                    window.location.replace('/home');
+                   }).fail(function(response){
+                     
+                   });
+             });
+            
           
         </script>
         
@@ -155,7 +245,7 @@
       
     </div>
      
-    <footer class="py-5 bg-dark">
+    <footer id="fot" class="py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy;webteam 2017</p>
       </div>

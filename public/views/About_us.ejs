@@ -41,7 +41,7 @@
               <a class="nav-link" href="/"><b>service</b></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/registration"><b>Signin</b></a>
+              <a id="sin" class="nav-link" href="/"><b>Signout</b></a>
             </li>
           </ul>
            <form class="form-inline my-2 my-lg-0" style="padding-left: 20px;">
@@ -51,7 +51,34 @@
         </div>
               
       </div>
+      <% if(user!=null){%>
+      <div>
+      <ul id="">
+            <li>
+              <i style="color:white;size:40px;margin-top:30px;margin-right:80px;"  class="fa fa-user-circle-o" aria-hidden="true"><h2></h2 style="color:blue">Welcome:<%=request.user.firstName %></h2></i> 
+            </li>
+           </ul>
+      
+      </div>
+      <%}%>
     </nav>
+    
+   <script src="/lib/jquery/dist/jquery.min.js"> </script>
+    <script>
+       $("#sin").click(function(event){
+                    $.ajax({
+                    method: 'GET',
+                    url: "/auth/signout",
+                    
+                   }).done(function(response){
+                     console.log(response);
+                    window.location.replace('/home');
+                   }).fail(function(response){
+                     
+                   });
+             });
+            
+    </script>
         <div class="header">
       <div class="container-fluid dff">
         <div class="row"style="height:900px;">
