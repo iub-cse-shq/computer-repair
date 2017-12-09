@@ -33,7 +33,7 @@ PUT **/api/articles/edit/:articleId** (updates the matching article)
 
 5.
 
-Computer Repair developed by Abdur rahman(id-1430125) and raihan hasin khan(id-142179)
+Computer Repair developed by Abdur rahman(id-1430125) and raihan hasin khan(id-1421179)
 Online computer computer repair.Basically our application can provide all types of computer or PC related service.
 Why need computer repair??
 ->Computer problems happen to everyone
